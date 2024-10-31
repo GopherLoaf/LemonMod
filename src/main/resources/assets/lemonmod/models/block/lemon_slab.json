@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "lemonmod:block/lemon_planks",
+    "side": "lemonmod:block/lemon_planks",
+    "top": "lemonmod:block/lemon_planks"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "lemonade_bottle",
+  "ingredients": [
+    [
+      {
+        "item": "lemonmod:lemon"
+      },
+      {
+        "item": "lemonmod:lemon_juice_bottle"
+      }
+    ],
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "lemonmod:lemonade_bottle"
+  }
+}

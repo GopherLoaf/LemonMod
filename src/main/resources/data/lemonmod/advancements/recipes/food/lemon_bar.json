@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_egg": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lemon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:lemon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_lemon_juice_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:lemon_juice_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "lemonmod:lemon_bar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_egg",
+      "has_lemon",
+      "has_lemon_juice_bottle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lemonmod:lemon_bar"
+    ]
+  },
+  "sends_telemetry_event": false
+}

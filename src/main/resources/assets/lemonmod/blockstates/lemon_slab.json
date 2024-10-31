@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "lemonmod:block/lemon_slab"
+    },
+    "type=double": {
+      "model": "lemonmod:block/lemon_planks"
+    },
+    "type=top": {
+      "model": "lemonmod:block/lemon_slab_top"
+    }
+  }
+}

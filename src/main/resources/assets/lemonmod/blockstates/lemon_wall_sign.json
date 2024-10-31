@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "lemonmod:block/lemon_sign"
+    }
+  }
+}

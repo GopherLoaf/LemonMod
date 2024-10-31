@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "lemonmod:lemon_log",
+    "lemonmod:lemon_wood",
+    "lemonmod:stripped_lemon_log",
+    "lemonmod:stripped_lemon_wood"
+  ]
+}
