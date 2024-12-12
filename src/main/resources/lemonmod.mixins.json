@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.github.gopherloaf.lemonmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "lemonmod.refmap.json",
+  "mixins": [
+    "MixinForgeEventFactory"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

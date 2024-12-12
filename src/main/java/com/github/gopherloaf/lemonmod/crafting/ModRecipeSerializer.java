@@ -14,7 +14,7 @@ public class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<IndirectlyCombustibleLemonRecipe>> INDIRECTLY_COMBUSTIBLE_LEMON = RECIPE_SERIALIZERS.register("crafting_special_indirectly_combustible_lemon",() -> new SimpleCraftingRecipeSerializer(IndirectlyCombustibleLemonRecipe::new));
 
     public static void register(){
-        // Register the Deferred Register to the mod event bus so items get registered
+        // Register the Deferred Register to the mod event bus so item get registered
         RECIPE_SERIALIZERS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

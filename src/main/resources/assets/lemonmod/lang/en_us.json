@@ -1,6 +1,4 @@
 {
-  "creativetab.lemon_tab": "Lemon Mod",
-
   "block.lemonmod.lemon_button": "Lemon Button",
   "block.lemonmod.lemon_door": "Lemon Door",
   "block.lemonmod.lemon_fence": "Lemon Fence",
@@ -22,6 +20,13 @@
   "block.lemonmod.stripped_lemon_log": "Stripped Lemon Log",
   "block.lemonmod.stripped_lemon_wood": "Stripped Lemon Wood",
 
+  "creativetab.lemon_tab": "Lemon Mod",
+
+  "effect.lemonmod.sour": "Sour",
+
+  "entity.lemonmod.boat":"Boat",
+  "entity.lemonmod.chest_boat":"Boat with Chest",
+
   "item.lemonmod.lemon_boat": "Lemon Boat",
   "item.lemonmod.lemon_chest_boat": "Lemon Boat with Chest",
   "item.lemonmod.lemon": "Lemon",
@@ -29,5 +34,6 @@
   "item.lemonmod.lemon_juice_bottle": "Lemon Juice Bottle",
   "item.lemonmod.lemonade_bottle": "Lemonade Bottle",
   "item.lemonmod.indirectly_combustible_lemon": "Indirectly Combustible Lemon",
-  "item.lemonmod.indirectly_combustible_lemon.explosion": "Explosion Power:"
+  "item.lemonmod.indirectly_combustible_lemon.explosion": "Explosion Power:",
+  "item.lemonmod.sign": "Sign"
 }

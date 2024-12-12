@@ -1,6 +1,6 @@
 package com.github.gopherloaf.lemonmod.crafting;
 
-import com.github.gopherloaf.lemonmod.items.ModItems;
+import com.github.gopherloaf.lemonmod.world.item.ModItems;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;

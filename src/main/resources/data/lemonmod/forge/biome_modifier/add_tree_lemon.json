@@ -1,0 +1,15 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#lemonmod:has_lemon_tree",
+  "features": [
+    "lemonmod:fancy_lemon_bees",
+    "lemonmod:fancy_lemon_bees_002",
+    "lemonmod:fancy_lemon_bees_0002",
+    "lemonmod:fancy_lemon_checked",
+    "lemonmod:lemon",
+    "lemonmod:lemon_bees_002",
+    "lemonmod:lemon_bees_0002",
+    "lemonmod:lemon_checked"
+  ],
+  "step": "vegetal_decoration"
+}

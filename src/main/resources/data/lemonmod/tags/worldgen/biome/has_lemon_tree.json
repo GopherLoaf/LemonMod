@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_jungle",
+    "#minecraft:has_structure/ocean_ruin_warm",
+    "#minecraft:allows_tropical_fish_spawns_at_any_height",
+    "minecraft:mangrove_swamp"
+  ]
+}
