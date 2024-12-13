@@ -22,15 +22,15 @@ public class ModItems {
     public static final RegistryObject<Item> LEMON_CHEST_BOAT = ITEMS.register("lemon_chest_boat", () -> new ModBoatItem(true, ModBoat.Type.LEMON, (new Item.Properties()).stacksTo(1)));
     // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
     public static final RegistryObject<Item> LEMON = ITEMS.register("lemon", () -> new LemonItem(new Item.Properties().food(new FoodProperties.Builder()
-            .nutrition(4).saturationMod(9.6f).effect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 0), 1.0F).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 300, 3), 1.0F).build())));
+            .nutrition(4).saturationMod(9.6f).effect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0), 1.0F).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 600, 3), 1.0F).build())));
     public static final RegistryObject<Item> LEMON_BAR = ITEMS.register("lemon_bar", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
             .nutrition(2).saturationMod(0.8f).build())));
     public static final RegistryObject<Item> LEMON_JUICE_BOTTLE = ITEMS.register("lemon_juice_bottle", () -> new LemonJuiceBottleItem(new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEat().nutrition(2).saturationMod(9.6f).effect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0), 1.0F).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 600, 3), 1.0F).build()).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
+            .alwaysEat().nutrition(2).saturationMod(9.6f).effect(new MobEffectInstance(MobEffects.BLINDNESS, 80, 0), 1.0F).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 1200, 4), 1.0F).build()).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> LEMONADE_BOTTLE = ITEMS.register("lemonade_bottle", () -> new LemonadeBottleItem(new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEat().nutrition(2).saturationMod(1.6f).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 60, 0), 1.0F).build()).stacksTo(16).craftRemainder(Items.GLASS_BOTTLE)));
     public static final RegistryObject<Item> INDIRECTLY_COMBUSTIBLE_LEMON = ITEMS.register("indirectly_combustible_lemon", () -> new IndirectlyCombustibleLemonItem(new Item.Properties().food(new FoodProperties.Builder()
-            .nutrition(4).saturationMod(9.6f).effect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0), 1.0F).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 300, 3), 1.0F).effect(new MobEffectInstance(MobEffects.HUNGER, 300, 2), 1.0F).effect(new MobEffectInstance(MobEffects.CONFUSION, 300, 0), 1.0F).effect(new MobEffectInstance(MobEffects.POISON, 1200, 1), 1.0F).build())));
+            .nutrition(4).saturationMod(9.6f).effect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0), 1.0F).effect(new MobEffectInstance(ModMobEffects.SOUR.get(), 600, 3), 1.0F).effect(new MobEffectInstance(MobEffects.HUNGER, 300, 2), 1.0F).effect(new MobEffectInstance(MobEffects.CONFUSION, 300, 0), 1.0F).effect(new MobEffectInstance(MobEffects.POISON, 1200, 1), 1.0F).build())));
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> LEMON_PLANKS_ITEM = ITEMS.register("lemon_planks", () -> new BlockItem(ModBlocks.LEMON_PLANKS.get(), new Item.Properties()));
     public static final RegistryObject<Item> LEMON_SAPLING_ITEM = ITEMS.register("lemon_sapling", () -> new BlockItem(ModBlocks.LEMON_SAPLING.get(), new Item.Properties()));
