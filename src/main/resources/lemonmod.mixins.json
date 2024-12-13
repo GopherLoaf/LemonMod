@@ -5,7 +5,8 @@
   "minVersion": "0.8",
   "refmap": "lemonmod.refmap.json",
   "mixins": [
-    "MixinForgeEventFactory"
+    "MixinForgeEventFactory",
+    "MixinLivingEntity"
   ],
   "injectors": {
     "defaultRequire": 1
