@@ -12,6 +12,7 @@ public class ModMobEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, LemonMod.MODID);
 
     public static final RegistryObject<MobEffect> SOUR = MOB_EFFECTS.register("sour", () -> new ModMobEffect(MobEffectCategory.HARMFUL, 8322841));
+    public static final RegistryObject<MobEffect> SATURATION = MOB_EFFECTS.register("saturation", () -> new ModMobEffect(MobEffectCategory.BENEFICIAL, 16262179));
 
     public static void register(){
         // Register the Deferred Register to the mod event bus so item get registered

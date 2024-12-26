@@ -5,8 +5,16 @@
   "minVersion": "0.8",
   "refmap": "lemonmod.refmap.json",
   "mixins": [
+    "MixinAbstractHorse",
     "MixinForgeEventFactory",
-    "MixinLivingEntity"
+    "MixinLivingEntity",
+    "MixinShearsDispenseItemBehavior",
+    "MixinWalkNodeEvaluator",
+    "MixinPlayer",
+    "MixinEntity",
+    "MixinProtectionEnchantment",
+    "MixinEnchantmentHelper",
+    "MixinLevel"
   ],
   "injectors": {
     "defaultRequire": 1

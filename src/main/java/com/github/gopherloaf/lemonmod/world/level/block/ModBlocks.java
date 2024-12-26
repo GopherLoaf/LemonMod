@@ -1,6 +1,7 @@
 package com.github.gopherloaf.lemonmod.world.level.block;
 
 import com.github.gopherloaf.lemonmod.LemonMod;
+import com.github.gopherloaf.lemonmod.world.item.BigLemonBlock;
 import com.github.gopherloaf.lemonmod.world.level.block.grower.LemonTreeGrower;
 import com.github.gopherloaf.lemonmod.world.level.block.state.properties.ModBlockSetType;
 import com.github.gopherloaf.lemonmod.world.level.block.state.properties.ModWoodType;
@@ -10,12 +11,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.BirchTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -48,6 +47,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> LEMON_FENCE_GATE = BLOCKS.register("lemon_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.of().mapColor(LEMON_PLANKS.get().defaultMapColor()).forceSolidOn().instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava(), ModWoodType.LEMON));
     public static final RegistryObject<Block> LEMON_FENCE = BLOCKS.register("lemon_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(LEMON_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD)));
     public static final RegistryObject<Block> LEMON_DOOR = BLOCKS.register("lemon_door", () -> new DoorBlock(BlockBehaviour.Properties.of().mapColor(LEMON_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY), ModBlockSetType.LEMON));
+    public static final RegistryObject<Block> PINEAPPLE_BUSH = BLOCKS.register("pineapple_bush", () -> new PineappleBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> BIG_LEMON = BLOCKS.register("big_lemon", () -> new BigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> HOLLOWED_BIG_LEMON = BLOCKS.register("hollowed_big_lemon", () -> new EquipableHollowedBigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> BIG_LEMON_LANTERN = BLOCKS.register("big_lemon_lantern", () -> new HollowedBigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0F).sound(SoundType.WOOD).lightLevel((p_50870_) -> {
+        return 15;
+    }).pushReaction(PushReaction.DESTROY)));
 
     private static RotatedPillarBlock log(MapColor p_285370_, MapColor p_285126_) {
         return new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor((p_152624_) -> {

@@ -5,6 +5,10 @@
       {
         "type": "minecraft:beehive",
         "probability": 1.0
+      },
+      {
+        "type": "lemonmod:big_lemon",
+        "probability": 0.06
       }
     ],
     "dirt_provider": {

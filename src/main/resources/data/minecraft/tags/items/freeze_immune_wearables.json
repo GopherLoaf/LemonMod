@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "lemonmod:lemon_leather_helmet",
+    "lemonmod:lemon_leather_chestplate",
+    "lemonmod:lemon_leather_leggings",
+    "lemonmod:lemon_leather_boots"
+  ]
+}

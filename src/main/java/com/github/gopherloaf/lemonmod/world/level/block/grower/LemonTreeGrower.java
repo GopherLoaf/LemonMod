@@ -11,7 +11,7 @@ public class LemonTreeGrower extends AbstractTreeGrower {
         int random = p_256119_.nextInt(10);
         if (random == 0) {
             return p_256536_ ? ModTreeFeatures.FANCY_LEMON_BEES_005 : ModTreeFeatures.FANCY_LEMON;
-        } else if (random < 5){
+        } else if (random < 4){
             return p_256536_ ? ModTreeFeatures.LEMON_BEES_005 : ModTreeFeatures.LEMON;
         } else {
             return p_256536_ ? ModTreeFeatures.SMALL_LEMON_BEES_005 : ModTreeFeatures.SMALL_LEMON;

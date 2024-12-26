@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#lemonmod:has_lemon_tree",
+  "features": "lemonmod:patch_pineapple_uncommon",
+  "step": "vegetal_decoration"
+}

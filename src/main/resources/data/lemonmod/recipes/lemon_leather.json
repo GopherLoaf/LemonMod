@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "lemon_leather",
+  "ingredients": [
+    {
+      "item": "lemonmod:hollowed_big_lemon"
+    },
+    {
+      "item": "lemonmod:hollowed_big_lemon"
+    },
+    {
+      "item": "lemonmod:hollowed_big_lemon"
+    },
+    {
+      "item": "lemonmod:hollowed_big_lemon"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:leather"
+    }
+  ],
+  "result": {
+    "item": "lemonmod:lemon_leather"
+  }
+}

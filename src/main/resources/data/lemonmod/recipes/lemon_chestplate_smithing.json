@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "lemonmod:lemon_leather"
+  },
+  "base": {
+    "item": "minecraft:chainmail_chestplate"
+  },
+  "result": {
+    "item": "lemonmod:lemon_leather_chestplate"
+  },
+  "template": {
+    "item": "lemonmod:lemon_leather_upgrade_smithing_template"
+  }
+}

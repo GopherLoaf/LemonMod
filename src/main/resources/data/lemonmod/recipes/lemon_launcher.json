@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "lemonmod:big_lemon"
+    },
+    "B": {
+      "item": "minecraft:end_crystal"
+    },
+    "C": {
+      "item": "minecraft:dragon_head"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "CB ",
+    "AAA"
+  ],
+  "result": {
+    "item": "lemonmod:lemon_launcher",
+    "count": 1
+
+  },
+  "show_notification": true
+}

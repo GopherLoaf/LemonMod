@@ -1,0 +1,22 @@
+{
+  "combustible_lemon_throw": {
+    "sounds": [
+      "lemonmod:entity/combustible_lemon/throw"
+    ],
+    "subtitle": "subtitles.entity.combustible_lemon.throw"
+  },
+
+  "big_lemon_hollow": {
+    "sounds": [
+      "lemonmod:block/big_lemon/hollow"
+    ],
+    "subtitle": "subtitles.block.big_lemon.hollow"
+  },
+
+  "pineapple_bush_shear": {
+    "sounds": [
+      "lemonmod:block/pineapple_bush/shear"
+    ],
+    "subtitle": "subtitles.block.pineapple_bush.shear"
+  }
+}

@@ -1,7 +1,6 @@
 package com.github.gopherloaf.lemonmod.world.item;
 
 import com.github.gopherloaf.lemonmod.Config;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -10,42 +9,37 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.AbstractFish;
-import net.minecraft.world.entity.animal.horse.AbstractHorse;
-import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class LemonItem extends Item {
-    protected int explosionSize;
+    protected float explosionSize;
 
     public LemonItem(Properties p_41383_) {
         super(p_41383_);
         explosionSize = Config.fishExplosionSize;
     }
 
-    public ItemStack finishUsingItem(ItemStack p_41348_, Level p_41349_, LivingEntity p_41350_) {
+    public @NotNull ItemStack finishUsingItem(@NotNull ItemStack p_41348_, @NotNull Level p_41349_, @NotNull LivingEntity p_41350_) {
         ItemStack itemstack = super.finishUsingItem(p_41348_, p_41349_, p_41350_);
 
-        if (!p_41349_.isClientSide) {
-            p_41350_.removeEffect(MobEffects.HUNGER);
-        }
-
-        if (p_41350_ instanceof AbstractFish $$4 && (p_41348_.getItem() instanceof IndirectlyCombustibleLemonItem || Config.explosiveLemons)) {
+        if (p_41350_ instanceof AbstractFish $$4 && (p_41348_.is(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get()) || p_41348_.is(ModItems.COMBUSTIBLE_LEMON.get()) || Config.explosiveLemons)) {
             if ($$4.isAlive()) {
                 if (!p_41350_.level().isClientSide) {
                     CompoundTag compoundtag = p_41348_.getTagElement("Indirectly Combustible Lemon");
                     explosionSize = Config.fishExplosionSize;
                     if (compoundtag != null) {
                         if (compoundtag.contains("Explosion", 99)) {
-                            explosionSize = explosionSize + (p_41348_.getTagElement("Indirectly Combustible Lemon").getByte("Explosion") * Config.combustibleExplosionIncrement);
+                            explosionSize = (float) (explosionSize + (p_41348_.getTagElement("Indirectly Combustible Lemon").getByte("Explosion") * Config.combustibleExplosionIncrement));
+                        }
+                        if (p_41348_.is(ModItems.COMBUSTIBLE_LEMON.get())) {
+                            explosionSize = (float) Math.sqrt(explosionSize);
                         }
                     }
-                    p_41350_.level().explode(p_41350_, p_41350_.getX(), p_41350_.getY(), p_41350_.getZ(), explosionSize, Config.fireyLemons, Level.ExplosionInteraction.MOB);
+                    p_41350_.level().explode(p_41350_, p_41350_.getX(), p_41350_.getY(), p_41350_.getZ(), explosionSize, Config.fireyLemons, p_41350_ instanceof Player ? Level.ExplosionInteraction.BLOCK : Level.ExplosionInteraction.MOB);
                     if (!p_41350_.isInvulnerable()) {
                         ServerLevel serverlevel1 = ((ServerLevel) p_41350_.level()).getServer().getLevel(Level.NETHER);
                         if (Config.fishToHell && p_41350_.level().dimension().equals(Level.OVERWORLD) && serverlevel1 != null){
@@ -63,8 +57,8 @@ public class LemonItem extends Item {
         return itemstack;
     }
 
-    public InteractionResult interactLivingEntity(ItemStack p_41398_, Player p_41399_, LivingEntity p_41400_, InteractionHand p_41401_) {
-        if (p_41400_ instanceof AbstractFish $$4 && (p_41398_.getItem() instanceof IndirectlyCombustibleLemonItem || Config.explosiveLemons)) {
+    public @NotNull InteractionResult interactLivingEntity(@NotNull ItemStack p_41398_, @NotNull Player p_41399_, @NotNull LivingEntity p_41400_, @NotNull InteractionHand p_41401_) {
+        if (p_41400_ instanceof AbstractFish $$4 && (p_41398_.is(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get()) || p_41398_.is(ModItems.COMBUSTIBLE_LEMON.get()) || Config.explosiveLemons)) {
             if ($$4.isAlive()) {
                 if (!p_41399_.level().isClientSide) {
                     p_41400_.removeEffect(MobEffects.HUNGER);
@@ -75,10 +69,13 @@ public class LemonItem extends Item {
                     explosionSize = Config.fishExplosionSize;
                     if (compoundtag != null) {
                         if (compoundtag.contains("Explosion", 99)) {
-                            explosionSize = explosionSize + (p_41398_.getTagElement("Indirectly Combustible Lemon").getByte("Explosion") * Config.combustibleExplosionIncrement);
+                            explosionSize = (float) (explosionSize + (p_41398_.getTagElement("Indirectly Combustible Lemon").getByte("Explosion") * Config.combustibleExplosionIncrement));
+                        }
+                        if (p_41398_.is(ModItems.COMBUSTIBLE_LEMON.get())) {
+                            explosionSize = (float) Math.sqrt(explosionSize);
                         }
                     }
-                    p_41400_.level().explode(p_41400_, p_41400_.getX(), p_41400_.getY(), p_41400_.getZ(), explosionSize, Config.fireyLemons, Level.ExplosionInteraction.MOB);
+                    p_41400_.level().explode(p_41400_, p_41400_.getX(), p_41400_.getY(), p_41400_.getZ(), explosionSize, Config.fireyLemons, p_41399_ instanceof Player ? Level.ExplosionInteraction.BLOCK : Level.ExplosionInteraction.MOB);
                     if (p_41399_.isCreative() || !p_41400_.isInvulnerable()) {
                         ServerLevel serverlevel1 = ((ServerLevel) p_41400_.level()).getServer().getLevel(Level.NETHER);
                         if (Config.fishToHell && p_41400_.level().dimension().equals(Level.OVERWORLD) && serverlevel1 != null){

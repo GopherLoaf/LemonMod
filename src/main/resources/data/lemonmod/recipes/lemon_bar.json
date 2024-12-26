@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "lemon_bar",
   "key": {
     "A": {
       "item": "minecraft:sugar"
@@ -12,14 +11,9 @@
     "C": {
       "item": "minecraft:wheat"
     },
-    "E": [
-      {
-        "item": "lemonmod:lemon"
-      },
-      {
-        "item": "lemonmod:lemon_juice_bottle"
-      }
-    ]
+    "E": {
+      "item": "lemonmod:lemon_juice_bottle"
+    }
   },
   "pattern": [
     "AAA",

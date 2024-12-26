@@ -1,22 +1,24 @@
 package com.github.gopherloaf.lemonmod;
 
+import com.github.gopherloaf.lemonmod.sounds.ModSoundEvents;
 import com.github.gopherloaf.lemonmod.world.effect.ModMobEffects;
+import com.github.gopherloaf.lemonmod.world.item.CombustibleLemonItem;
+import com.github.gopherloaf.lemonmod.world.item.LemonLauncherItem;
+import com.github.gopherloaf.lemonmod.world.item.alchemy.ModPotions;
+import com.github.gopherloaf.lemonmod.world.item.enchantment.ModEnchantments;
 import com.github.gopherloaf.lemonmod.world.level.block.ModBlocks;
-import com.github.gopherloaf.lemonmod.crafting.ModRecipeSerializer;
-import com.github.gopherloaf.lemonmod.init.InitListInject;
+import com.github.gopherloaf.lemonmod.world.item.crafting.ModRecipeSerializer;
+import com.github.gopherloaf.lemonmod.misc.init.Init;
 import com.github.gopherloaf.lemonmod.world.item.IndirectlyCombustibleLemonItem;
 import com.github.gopherloaf.lemonmod.world.entity.ModEntityType;
 import com.github.gopherloaf.lemonmod.world.level.block.entity.ModBlockEntityType;
 import com.github.gopherloaf.lemonmod.world.level.block.state.properties.ModWoodType;
-import com.google.common.collect.Maps;
+import com.github.gopherloaf.lemonmod.world.level.levelgen.feature.treedecorators.ModTreeDecoratorType;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -34,7 +36,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import com.github.gopherloaf.lemonmod.world.item.ModItems;
 
@@ -58,10 +59,42 @@ public class LemonMod
                 output.accept(ModItems.LEMON_BAR.get());
                 output.accept(ModItems.LEMON_JUICE_BOTTLE.get());
                 output.accept(ModItems.LEMONADE_BOTTLE.get());
+                output.accept(ModItems.PINEAPPLE.get());
+                output.accept(ModItems.SOUR_CANDIES.get());
+                output.accept(ModItems.GOLDEN_LEMON.get());
+                output.accept(ModItems.ENCHANTED_GOLDEN_LEMON.get());
+                output.accept(ModItems.GLISTERING_PINEAPPLE.get());
+                output.accept(ModItems.PENULTIMATE_JUICE_BOTTLE.get());
+                output.accept(ModItems.GOLDEN_PENULTIMATE_JUICE_BOTTLE.get());
+                output.accept(ModItems.ULTIMATE_JUICE_BOTTLE.get());
                 output.accept(ModItems.LEMON_BOAT.get());
                 output.accept(ModItems.LEMON_CHEST_BOAT.get());
                 ItemStack itemstack = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
                 IndirectlyCombustibleLemonItem.setExplosionSize(itemstack, (byte) 1);
+                output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                itemstack = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
+                IndirectlyCombustibleLemonItem.setExplosionSize(itemstack, (byte) 8);
+                output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                itemstack = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
+                IndirectlyCombustibleLemonItem.setExplosionSize(itemstack, (byte) 20);
+                output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                itemstack = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
+                CombustibleLemonItem.setExplosionSize(itemstack, (byte) 1);
+                output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                itemstack = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
+                CombustibleLemonItem.setExplosionSize(itemstack, (byte) 8);
+                output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                itemstack = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
+                CombustibleLemonItem.setExplosionSize(itemstack, (byte) 20);
+                output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                output.accept(ModItems.LEMON_LEATHER.get());
+                output.accept(ModItems.LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE.get());
+                output.accept(ModItems.LEMON_LEATHER_HELMET.get());
+                output.accept(ModItems.LEMON_LEATHER_CHESTPLATE.get());
+                output.accept(ModItems.LEMON_LEATHER_LEGGINGS.get());
+                output.accept(ModItems.LEMON_LEATHER_BOOTS.get());
+                itemstack = new ItemStack(ModItems.LEMON_LAUNCHER.get());
+                LemonLauncherItem.setTemperature(itemstack, (byte) 2);
                 output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 output.accept(ModItems.LEMON_LOG_ITEM.get());
                 output.accept(ModItems.LEMON_LEAVES_ITEM.get());
@@ -80,6 +113,9 @@ public class LemonMod
                 output.accept(ModItems.LEMON_BUTTON_ITEM.get());
                 output.accept(ModItems.LEMON_SIGN_ITEM.get());
                 output.accept(ModItems.LEMON_HANGING_SIGN_ITEM.get());
+                output.accept(ModItems.BIG_LEMON_ITEM.get());
+                output.accept(ModItems.HOLLOWED_BIG_LEMON_ITEM.get());
+                output.accept(ModItems.BIG_LEMON_LANTERN_ITEM.get());
             }).build());
 
     public LemonMod()
@@ -97,6 +133,10 @@ public class LemonMod
         ModEntityType.register();
         ModBlockEntityType.register();
         ModMobEffects.register();
+        ModPotions.register();
+        ModTreeDecoratorType.register();
+        ModSoundEvents.register();
+        ModEnchantments.register();
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
@@ -112,7 +152,7 @@ public class LemonMod
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         event.enqueueWork(() -> {
-            InitListInject.init();
+            Init.init();
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.LEMON_SAPLING.getId(), ModBlocks.POTTED_LEMON_SAPLING);
             WoodType.register(ModWoodType.LEMON);
         });
@@ -124,19 +164,44 @@ public class LemonMod
     // Add the example block item to the building loot_tables tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        ItemStack indirectlyCombustibleLemon = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
+        IndirectlyCombustibleLemonItem.setExplosionSize(indirectlyCombustibleLemon, (byte) 1);
+        ItemStack indirectlyCombustibleLemon1 = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
+        IndirectlyCombustibleLemonItem.setExplosionSize(indirectlyCombustibleLemon1, (byte) 8);
+        ItemStack indirectlyCombustibleLemon2 = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
+        IndirectlyCombustibleLemonItem.setExplosionSize(indirectlyCombustibleLemon2, (byte) 20);
+        ItemStack combustibleLemon = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
+        CombustibleLemonItem.setExplosionSize(combustibleLemon, (byte) 1);
+        ItemStack combustibleLemon1 = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
+        CombustibleLemonItem.setExplosionSize(combustibleLemon1, (byte) 8);
+        ItemStack combustibleLemon2 = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
+        CombustibleLemonItem.setExplosionSize(combustibleLemon2, (byte) 20);
+        ItemStack lemonLauncher = new ItemStack(ModItems.LEMON_LAUNCHER.get());
+        LemonLauncherItem.setTemperature(lemonLauncher, (byte) 2);
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
             event.accept(ModItems.LEMON);
             event.accept(ModItems.LEMON_BAR);
             event.accept(ModItems.LEMON_JUICE_BOTTLE);
             event.accept(ModItems.LEMONADE_BOTTLE);
-            ItemStack itemstack = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
-            IndirectlyCombustibleLemonItem.setExplosionSize(itemstack, (byte) 1);
-            event.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon1, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon2, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(ModItems.PINEAPPLE);
+            event.accept(ModItems.SOUR_CANDIES);
+            event.accept(ModItems.GOLDEN_LEMON);
+            event.accept(ModItems.ENCHANTED_GOLDEN_LEMON);
+            event.accept(ModItems.BIG_LEMON_ITEM);
+            event.accept(ModItems.PENULTIMATE_JUICE_BOTTLE);
+            event.accept(ModItems.GOLDEN_PENULTIMATE_JUICE_BOTTLE);
+            event.accept(ModItems.ULTIMATE_JUICE_BOTTLE);
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
             event.accept(ModItems.LEMON_LOG_ITEM);
             event.accept(ModItems.LEMON_LEAVES_ITEM);
             event.accept(ModItems.LEMON_SAPLING_ITEM);
+            event.accept(ModItems.BIG_LEMON_ITEM.get());
+            event.accept(ModItems.HOLLOWED_BIG_LEMON_ITEM.get());
+            event.accept(ModItems.BIG_LEMON_LANTERN_ITEM.get());
         }
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
             event.accept(ModItems.LEMON_LOG_ITEM);
@@ -160,6 +225,23 @@ public class LemonMod
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES){
             event.accept(ModItems.LEMON_BOAT);
             event.accept(ModItems.LEMON_CHEST_BOAT);
+        }
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.LEMON_JUICE_BOTTLE);
+            event.accept(ModItems.SOUR_CANDIES);
+            event.accept(ModItems.GLISTERING_PINEAPPLE);
+            event.accept(ModItems.LEMON_LEATHER);
+            event.accept(ModItems.LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE);
+        }
+        if (event.getTabKey() == CreativeModeTabs.COMBAT){
+            event.accept(combustibleLemon, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(combustibleLemon1, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(combustibleLemon2, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(ModItems.LEMON_LEATHER_HELMET.get());
+            event.accept(ModItems.LEMON_LEATHER_CHESTPLATE.get());
+            event.accept(ModItems.LEMON_LEATHER_LEGGINGS.get());
+            event.accept(ModItems.LEMON_LEATHER_BOOTS.get());
+            event.accept(lemonLauncher, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 

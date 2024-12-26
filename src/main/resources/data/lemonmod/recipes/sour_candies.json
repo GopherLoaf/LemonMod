@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "lemonmod:lemon_juice_bottle"
+    },
+    "#": {
+      "item": "minecraft:slime_ball"
+    },
+    "X": {
+      "item": "minecraft:honey_bottle"
+    }
+  },
+  "pattern": [
+    " O ",
+    "#X#"
+  ],
+  "result": {
+    "count": 12,
+    "item": "lemonmod:sour_candies"
+  },
+  "show_notification": true
+}
