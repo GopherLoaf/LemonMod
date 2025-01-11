@@ -87,6 +87,7 @@ public class LemonMod
                 itemstack = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
                 CombustibleLemonItem.setExplosionSize(itemstack, (byte) 20);
                 output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                output.accept(ModItems.LEMON_RIND.get());
                 output.accept(ModItems.LEMON_LEATHER.get());
                 output.accept(ModItems.LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE.get());
                 output.accept(ModItems.LEMON_LEATHER_HELMET.get());
@@ -199,6 +200,7 @@ public class LemonMod
             event.accept(ModItems.LEMON_LOG_ITEM);
             event.accept(ModItems.LEMON_LEAVES_ITEM);
             event.accept(ModItems.LEMON_SAPLING_ITEM);
+            event.accept(ModItems.PINEAPPLE);
             event.accept(ModItems.BIG_LEMON_ITEM.get());
             event.accept(ModItems.HOLLOWED_BIG_LEMON_ITEM.get());
             event.accept(ModItems.BIG_LEMON_LANTERN_ITEM.get());
@@ -230,10 +232,14 @@ public class LemonMod
             event.accept(ModItems.LEMON_JUICE_BOTTLE);
             event.accept(ModItems.SOUR_CANDIES);
             event.accept(ModItems.GLISTERING_PINEAPPLE);
+            event.accept(ModItems.LEMON_RIND);
             event.accept(ModItems.LEMON_LEATHER);
             event.accept(ModItems.LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT){
+            event.accept(indirectlyCombustibleLemon, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon1, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon2, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.accept(combustibleLemon, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.accept(combustibleLemon1, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             event.accept(combustibleLemon2, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);

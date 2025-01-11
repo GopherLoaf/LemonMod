@@ -22,7 +22,7 @@ public class ModSmithingTemplateItem extends Item {
     private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = new ResourceLocation("item/empty_armor_slot_chestplate");
     private static final ResourceLocation EMPTY_SLOT_LEGGINGS = new ResourceLocation("item/empty_armor_slot_leggings");
     private static final ResourceLocation EMPTY_SLOT_BOOTS = new ResourceLocation("item/empty_armor_slot_boots");
-    private static final ResourceLocation EMPTY_SLOT_LEMON_LEATHER = new ResourceLocation(LemonMod.MODID, "item/lemon");
+    private static final ResourceLocation EMPTY_SLOT_LEMON_LEATHER = new ResourceLocation(LemonMod.MODID, "item/empty_slot_lemon_leather");
 
     public ModSmithingTemplateItem(Properties p_41383_) {
         super(p_41383_);

@@ -1,0 +1,6 @@
+{
+  "parent": "lemonmod:item/lemon_launcher",
+  "textures": {
+    "layer0": "lemonmod:item/lemon_launcher_pulling_1"
+  }
+}

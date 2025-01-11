@@ -29,7 +29,7 @@
               {
                 "type": "minecraft:would_survive",
                 "state": {
-                  "Name": "lemonmod:pineapple_bush_sapling"
+                  "Name": "lemonmod:pineapple_bush"
                 }
               }
             ]

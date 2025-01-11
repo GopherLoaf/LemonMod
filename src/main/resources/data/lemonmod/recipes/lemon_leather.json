@@ -4,16 +4,16 @@
   "group": "lemon_leather",
   "ingredients": [
     {
-      "item": "lemonmod:hollowed_big_lemon"
+      "item": "lemonmod:lemon_rind"
     },
     {
-      "item": "lemonmod:hollowed_big_lemon"
+      "item": "lemonmod:lemon_rind"
     },
     {
-      "item": "lemonmod:hollowed_big_lemon"
+      "item": "lemonmod:lemon_rind"
     },
     {
-      "item": "lemonmod:hollowed_big_lemon"
+      "item": "lemonmod:lemon_rind"
     },
     {
       "item": "minecraft:leather"

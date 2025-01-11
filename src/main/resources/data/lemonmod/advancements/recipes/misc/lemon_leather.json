@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hollowed_big_lemon": {
+    "has_lemon_rind": {
       "conditions": {
         "items": [
           {
             "items": [
-              "lemonmod:hollowed_big_lemon"
+              "lemonmod:lemon_rind"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_hollowed_big_lemon",
+      "has_lemon_rind",
       "has_the_recipe"
     ]
   ],

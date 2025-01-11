@@ -1,6 +1,7 @@
 {
+  "render_type": "minecraft:cutout",
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "minecraft:block/pineapple_bush_stage3"
+    "cross": "lemonmod:block/pineapple_bush_stage3"
   }
 }

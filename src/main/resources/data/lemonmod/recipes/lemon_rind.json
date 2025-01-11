@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 2.0,
+  "ingredient": {
+    "item": "lemonmod:hollowed_big_lemon"
+  },
+  "result": "lemonmod:lemon_rind"
+}

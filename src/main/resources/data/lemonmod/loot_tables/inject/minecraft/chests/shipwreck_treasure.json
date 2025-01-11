@@ -29,8 +29,18 @@
           "name": "minecraft:book"
         },
         {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_leather_upgrade_smithing_template",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_leather",
+          "weight": 2
+        },
+        {
           "type": "minecraft:empty",
-          "weight": 198
+          "weight": 194
         }
       ],
       "rolls": 1.0
@@ -41,11 +51,16 @@
         {
           "type": "minecraft:item",
           "name": "lemonmod:big_lemon",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_rind",
           "weight": 1
         },
         {
           "type": "minecraft:empty",
-          "weight": 59
+          "weight": 236
         }
       ],
       "rolls": {

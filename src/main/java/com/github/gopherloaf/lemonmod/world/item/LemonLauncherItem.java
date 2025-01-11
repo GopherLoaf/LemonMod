@@ -2,6 +2,7 @@ package com.github.gopherloaf.lemonmod.world.item;
 
 import com.github.gopherloaf.lemonmod.Config;
 import com.github.gopherloaf.lemonmod.misc.util.MiscUtil;
+import com.github.gopherloaf.lemonmod.sounds.ModSoundEvents;
 import com.github.gopherloaf.lemonmod.world.entity.projectile.ThrownCombustibleLemon;
 import com.github.gopherloaf.lemonmod.world.item.enchantment.ModEnchantments;
 import net.minecraft.ChatFormatting;
@@ -156,7 +157,10 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
                 p_40858_.broadcastBreakEvent(p_40897_);
             });
             p_40895_.addFreshEntity(throwncombustiblelemon);
-            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.CROSSBOW_SHOOT, SoundSource.PLAYERS, 1.0F, p_40900_);
+            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.ENDER_DRAGON_SHOOT, SoundSource.PLAYERS, 1.0F, p_40900_);
+            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.PLAYERS, 1.0F, p_40900_);
+            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.LEVER_CLICK, SoundSource.PLAYERS, 1.0F, p_40900_);
+            p_40895_.playSound((Player)null, p_40896_.getX(), p_40896_.getY(), p_40896_.getZ(), SoundEvents.PISTON_EXTEND, SoundSource.PLAYERS, 1.0F, p_40900_);
         }
     }
 
@@ -205,12 +209,14 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
         if (f >= 1.0F && !isCharged(p_40875_) && tryLoadProjectiles(p_40877_, p_40875_)) {
             setCharged(p_40875_, true);
             SoundSource soundsource = p_40877_ instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE;
-            p_40876_.playSound((Player)null, p_40877_.getX(), p_40877_.getY(), p_40877_.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundsource, 1.0F, 1.0F / (p_40876_.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            p_40876_.playSound((Player)null, p_40877_.getX(), p_40877_.getY(), p_40877_.getZ(), SoundEvents.PISTON_CONTRACT, soundsource, 1.0F, 1.0F / (p_40876_.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            p_40876_.playSound((Player)null, p_40877_.getX(), p_40877_.getY(), p_40877_.getZ(), SoundEvents.LEVER_CLICK, soundsource, 1.0F, 1.0F / (p_40876_.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            p_40876_.playSound((Player)null, p_40877_.getX(), p_40877_.getY(), p_40877_.getZ(), SoundEvents.NOTE_BLOCK_IMITATE_ENDER_DRAGON.get(), soundsource, getChargeDuration(p_40875_) / 30F, 1.0F / (p_40876_.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
 
     }
 
-    private static float getPowerForTime(int p_40854_, ItemStack p_40855_) {
+    public static float getPowerForTime(int p_40854_, ItemStack p_40855_) {
         float f = (float)p_40854_ / (float)getChargeDuration(p_40855_);
         if (f > 1.0F) {
             f = 1.0F;
@@ -277,9 +283,9 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
 
     public void onUseTick(Level p_40910_, LivingEntity p_40911_, ItemStack p_40912_, int p_40913_) {
         if (!p_40910_.isClientSide) {
-            int i = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.BAZOOKA.get(), p_40912_);
+            int i = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.BAZOOKA.get(), p_40912_) > 0 ? 1 : (EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.MULTI_LEMON_LAUNCHER.get(), p_40912_) > 0 ? 2 : 0);
             SoundEvent soundevent = this.getStartSound(i);
-            SoundEvent soundevent1 = i == 0 ? SoundEvents.CROSSBOW_LOADING_MIDDLE : null;
+            SoundEvent soundevent1 = i == 0 || i == 2 ? ModSoundEvents.LEMON_LAUNCHER_LOADING_MIDDLE.get() : null;
             float f = (float)(p_40912_.getUseDuration() - p_40913_) / (float)getChargeDuration(p_40912_);
             if (f < 0.2F) {
                 this.startSoundPlayed = false;
@@ -288,12 +294,14 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
 
             if (f >= 0.2F && !this.startSoundPlayed) {
                 this.startSoundPlayed = true;
-                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent, SoundSource.PLAYERS, 0.5F, 1.0F);
+                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), SoundEvents.PISTON_CONTRACT, SoundSource.PLAYERS, 0.5F, 1.0F);
+                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), SoundEvents.LEVER_CLICK, SoundSource.PLAYERS, 0.5F, 1.0F);
             }
 
             if (f >= 0.5F && soundevent1 != null && !this.midLoadSoundPlayed) {
                 this.midLoadSoundPlayed = true;
-                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), soundevent1, SoundSource.PLAYERS, 0.5F, 1.0F);
+                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), SoundEvents.PISTON_CONTRACT, SoundSource.PLAYERS, 0.5F, 1.0F);
+                p_40910_.playSound((Player)null, p_40911_.getX(), p_40911_.getY(), p_40911_.getZ(), SoundEvents.LEVER_CLICK, SoundSource.PLAYERS, 0.5F, 1.0F);
             }
         }
 
@@ -302,13 +310,11 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
     private SoundEvent getStartSound(int p_40852_) {
         switch (p_40852_) {
             case 1:
-                return SoundEvents.CROSSBOW_QUICK_CHARGE_1;
+                return ModSoundEvents.LEMON_LAUNCHER_BAZOOKA.get();
             case 2:
-                return SoundEvents.CROSSBOW_QUICK_CHARGE_2;
-            case 3:
-                return SoundEvents.CROSSBOW_QUICK_CHARGE_3;
+                return ModSoundEvents.LEMON_LAUNCHER_MULTI.get();
             default:
-                return SoundEvents.CROSSBOW_LOADING_START;
+                return ModSoundEvents.LEMON_LAUNCHER_LOADING_START.get();
         }
     }
 
@@ -317,7 +323,7 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
     }
 
     public @NotNull UseAnim getUseAnimation(@NotNull ItemStack p_40935_) {
-        return UseAnim.CROSSBOW;
+        return UseAnim.NONE;
     }
 
     public void appendHoverText(ItemStack p_40880_, @Nullable Level p_40881_, @NotNull List<Component> p_40882_, @NotNull TooltipFlag p_40883_) {

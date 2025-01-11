@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "lemonmod:item/lemon"
+    "layer0": "lemonmod:item/indirectly_combustible_lemon"
   }
 }

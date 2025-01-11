@@ -48,9 +48,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> LEMON_FENCE = BLOCKS.register("lemon_fence", () -> new FenceBlock(BlockBehaviour.Properties.of().mapColor(LEMON_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).ignitedByLava().sound(SoundType.WOOD)));
     public static final RegistryObject<Block> LEMON_DOOR = BLOCKS.register("lemon_door", () -> new DoorBlock(BlockBehaviour.Properties.of().mapColor(LEMON_PLANKS.get().defaultMapColor()).instrument(NoteBlockInstrument.BASS).strength(3.0F).noOcclusion().ignitedByLava().pushReaction(PushReaction.DESTROY), ModBlockSetType.LEMON));
     public static final RegistryObject<Block> PINEAPPLE_BUSH = BLOCKS.register("pineapple_bush", () -> new PineappleBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> BIG_LEMON = BLOCKS.register("big_lemon", () -> new BigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> HOLLOWED_BIG_LEMON = BLOCKS.register("hollowed_big_lemon", () -> new EquipableHollowedBigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
-    public static final RegistryObject<Block> BIG_LEMON_LANTERN = BLOCKS.register("big_lemon_lantern", () -> new HollowedBigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0F).sound(SoundType.WOOD).lightLevel((p_50870_) -> {
+    public static final RegistryObject<Block> BIG_LEMON = BLOCKS.register("big_lemon", () -> new BigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.5F, 1200F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> HOLLOWED_BIG_LEMON = BLOCKS.register("hollowed_big_lemon", () -> new EquipableHollowedBigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.5F, 1200F).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY)));
+    public static final RegistryObject<Block> BIG_LEMON_LANTERN = BLOCKS.register("big_lemon_lantern", () -> new HollowedBigLemonBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.5F, 1200F).sound(SoundType.WOOD).lightLevel((p_50870_) -> {
         return 15;
     }).pushReaction(PushReaction.DESTROY)));
 

@@ -14,7 +14,7 @@
   },
   "pattern": [
     "AAA",
-    "CB ",
+    "BC ",
     "AAA"
   ],
   "result": {

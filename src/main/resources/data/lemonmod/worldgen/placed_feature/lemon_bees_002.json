@@ -25,7 +25,7 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "minecraft:oak_sapling",
+          "Name": "lemonmod:lemon_sapling",
           "Properties": {
             "stage": "0"
           }

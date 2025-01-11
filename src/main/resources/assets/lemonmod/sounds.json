@@ -18,5 +18,41 @@
       "lemonmod:block/pineapple_bush/shear"
     ],
     "subtitle": "subtitles.block.pineapple_bush.shear"
+  },
+  "lemon_launcher_shoot": {
+    "sounds": [
+      "lemonmod:item/lemon_launcher/shoot"
+    ],
+    "subtitle": "subtitles.item.lemon_launcher.shoot"
+  },
+  "lemon_launcher_loading_start": {
+    "sounds": [
+      "lemonmod:item/lemon_launcher/loading_start"
+    ],
+    "subtitle": "subtitles.item.lemon_launcher.loading_start1"
+  },
+  "lemon_launcher_bazooka": {
+    "sounds": [
+      "lemonmod:item/lemon_launcher/bazooka"
+    ],
+    "subtitle": "subtitles.item.lemon_launcher.bazooka1"
+  },
+  "lemon_launcher_multi": {
+    "sounds": [
+      "lemonmod:item/lemon_launcher/multi"
+    ],
+    "subtitle": "subtitles.item.lemon_launcher.multi1"
+  },
+  "lemon_launcher_loading_middle": {
+    "sounds": [
+      "lemonmod:item/lemon_launcher/loading_middle1"
+    ],
+    "subtitle": "subtitles.item.lemon_launcher.loading_middle1"
+  },
+  "lemon_launcher_loading_end": {
+    "sounds": [
+      "lemonmod:item/lemon_launcher/loading_end1"
+    ],
+    "subtitle": "subtitles.item.lemon_launcher.loading_end1"
   }
 }

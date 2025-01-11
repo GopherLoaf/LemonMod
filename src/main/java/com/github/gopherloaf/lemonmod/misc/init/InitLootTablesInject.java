@@ -13,6 +13,8 @@ public class InitLootTablesInject {
     @SubscribeEvent
     public static void InjectLootTables(LootTableLoadEvent evt) {
         String[] lootTables = {
+                "minecraft:archaeology/ocean_ruin_cold",
+                "minecraft:archaeology/ocean_ruin_warm",
                 "minecraft:chests/abandoned_mineshaft",
                 "minecraft:chests/ancient_city",
                 "minecraft:chests/bastion_hoglin_stable",

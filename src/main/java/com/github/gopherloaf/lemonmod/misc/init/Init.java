@@ -1,7 +1,9 @@
 package com.github.gopherloaf.lemonmod.misc.init;
 
+import com.github.gopherloaf.lemonmod.LemonMod;
 import com.github.gopherloaf.lemonmod.common.brewing.ProperBrewingRecipe;
 import com.github.gopherloaf.lemonmod.world.entity.projectile.ThrownCombustibleLemon;
+import com.github.gopherloaf.lemonmod.world.item.LemonLauncherItem;
 import com.github.gopherloaf.lemonmod.world.item.ModArmorMaterials;
 import com.github.gopherloaf.lemonmod.world.item.ModItems;
 import com.github.gopherloaf.lemonmod.world.item.alchemy.ModPotions;
@@ -9,12 +11,14 @@ import com.github.gopherloaf.lemonmod.world.level.block.HollowedBigLemonBlock;
 import com.github.gopherloaf.lemonmod.world.level.block.ModBlocks;
 import com.google.common.collect.Maps;
 import net.minecraft.Util;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ArmorItem;
@@ -44,6 +48,7 @@ public class Init {
         ComposterBlock.COMPOSTABLES.put(ModItems.LEMON_LEAVES_ITEM.get(), 0.30F);
         ComposterBlock.COMPOSTABLES.put(ModItems.LEMON_SAPLING_ITEM.get(), 0.30F);
         ComposterBlock.COMPOSTABLES.put(ModItems.BIG_LEMON_ITEM.get(), 0.85F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.HOLLOWED_BIG_LEMON_ITEM.get(), 1.0F);
     }
 
     private static void strippables(){
@@ -83,10 +88,6 @@ public class Init {
 
         BrewingRecipeRegistry.addRecipe(new ProperBrewingRecipe(Ingredient.of(createPotion(Potions.WATER)), Ingredient.of(ModItems.GLISTERING_PINEAPPLE.get()), createPotion(Potions.MUNDANE)));
         BrewingRecipeRegistry.addRecipe(new ProperBrewingRecipe(Ingredient.of(createPotion(Potions.WATER)), Ingredient.of(ModItems.LEMON_JUICE_BOTTLE.get()), createPotion(Potions.MUNDANE)));
-    }
-
-    private static void repairMaterial() {
-        ModArmorMaterials.LEMON_LEATHER.setRepairMaterial(Ingredient.of(ModItems.LEMON_LEATHER.get()));
     }
 
     private static void dispenserBlockRegisterBehavior() {
@@ -131,12 +132,33 @@ public class Init {
         });
     }
 
+    private static void itemPropertiesRegister() {
+        ItemProperties.register(ModItems.LEMON_LAUNCHER.get(),
+                new ResourceLocation(LemonMod.MODID, "pulling"), (stack, level, living, id) -> {
+                    return living != null && living.isUsingItem() && living.getUseItem() == stack ? 1.0F : 0.0F;
+                });
+        ItemProperties.register(ModItems.LEMON_LAUNCHER.get(),
+                new ResourceLocation(LemonMod.MODID, "charged"), (stack, level, living, id) -> {
+                    return living != null && LemonLauncherItem.isCharged(stack) ? 1.0F : 0.0F;
+                });
+        ItemProperties.register(ModItems.LEMON_LAUNCHER.get(),
+                new ResourceLocation(LemonMod.MODID, "pull"), (stack, level, living, id) -> {
+                    float f = 0.0F;
+                    if (living != null && living.isUsingItem() && living.getUseItem() == stack){
+                        LemonLauncherItem lemonLauncherItem = (LemonLauncherItem) living.getUseItem().getItem();
+                        int i = lemonLauncherItem.getUseDuration(living.getUseItem()) - living.getUseItemRemainingTicks();
+                        f = LemonLauncherItem.getPowerForTime(i, living.getUseItem());
+                    }
+                    return Math.min(f, 1.0F);
+                });
+    }
+
     public static void init(){
         compostables();
         strippables();
         foodItems();
         brewingRecipeRegistry();
-        repairMaterial();
         dispenserBlockRegisterBehavior();
+        itemPropertiesRegister();
     }
 }

@@ -58,10 +58,13 @@ public class MixinLivingEntity {
                     p_21194_ = p_21194_ * 0.20F;
                 }
                 if (itemstack.is(ModItems.LEMON_LEATHER_CHESTPLATE.get()) && p_21193_.is(DamageTypeTags.IS_PROJECTILE)){
-                    p_21194_ = p_21194_ * 0.20F;
+                    p_21194_ = p_21194_ * 0.36F;
+                }
+                if (itemstack.is(ModItems.LEMON_LEATHER_CHESTPLATE.get()) && p_21193_.is(DamageTypeTags.IS_FIRE)){
+                    p_21194_ = p_21194_ * 0.36F;
                 }
                 if (itemstack.is(ModItems.LEMON_LEATHER_BOOTS.get()) && p_21193_.is(DamageTypeTags.IS_FALL)){
-                    p_21194_ = p_21194_ * 0.36F;
+                    p_21194_ = p_21194_ * 0.20F;
                 }
             }
         }

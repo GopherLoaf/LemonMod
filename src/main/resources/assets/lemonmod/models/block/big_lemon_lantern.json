@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "lemonmod:block/big_lemon_lantern_bottom",
+    "side": "lemonmod:block/big_lemon_side",
+    "top": "lemonmod:block/big_lemon_top"
+  }
+}

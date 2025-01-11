@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "lemonmod:block/big_lemon_top",
+    "side": "lemonmod:block/big_lemon_side"
+  }
+}

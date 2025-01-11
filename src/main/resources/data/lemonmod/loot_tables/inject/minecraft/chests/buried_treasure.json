@@ -34,8 +34,13 @@
           "weight": 2
         },
         {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_leather",
+          "weight": 2
+        },
+        {
           "type": "minecraft:empty",
-          "weight": 96
+          "weight": 94
         }
       ],
       "rolls": 1.0
@@ -47,6 +52,11 @@
           "type": "minecraft:item",
           "name": "lemonmod:big_lemon",
           "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_rind",
+          "weight": 2
         },
         {
           "type": "minecraft:empty",

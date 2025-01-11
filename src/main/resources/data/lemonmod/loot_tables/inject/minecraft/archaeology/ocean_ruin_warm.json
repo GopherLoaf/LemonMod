@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_leather"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_leather_upgrade_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "lemonmod:lemon_rind",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 54
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:archaeology/ocean_ruin_warm"
+}
