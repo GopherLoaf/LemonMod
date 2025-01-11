@@ -5,6 +5,7 @@ import com.github.gopherloaf.lemonmod.misc.util.MiscUtil;
 import com.github.gopherloaf.lemonmod.world.entity.ModEntityType;
 import com.github.gopherloaf.lemonmod.world.item.ModItems;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -88,9 +89,11 @@ public class ThrownCombustibleLemon extends ThrowableItemProjectile implements I
 
     protected void onHitEntity(@NotNull EntityHitResult p_36757_) {
         super.onHitEntity(p_36757_);
+        float f = (float)this.getDeltaMovement().length();
+        int i = Mth.ceil(Mth.clamp((double)f * 2.0D, 0.0D, (double)Integer.MAX_VALUE));
         if (!this.level().isClientSide) {
             Entity entity = p_36757_.getEntity();
-            entity.hurt(this.damageSources().thrown(this, this.getOwner()), 6.0F);
+            entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float) i);
         }
         explode(p_36757_);
     }
