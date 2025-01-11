@@ -3,6 +3,8 @@ package com.github.gopherloaf.lemonmod.world.item;
 import com.google.common.collect.ImmutableMultimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -38,20 +40,26 @@ public class ModArmorItem extends ArmorItem {
 
     public void appendHoverText(@NotNull ItemStack p_41211_, @Nullable Level p_41212_, @NotNull List<Component> p_41213_, @NotNull TooltipFlag p_41214_) {
         super.appendHoverText(p_41211_, p_41212_, p_41213_, p_41214_);
-        if (this.type == ArmorItem.Type.HELMET) {
-            p_41213_.add(Component.literal("80% Explosion Damage Reduction").withStyle(ChatFormatting.BLUE));
+        if (this.getMaterial() == ModArmorMaterials.LEMON_LEATHER){
+            if (this.type == ArmorItem.Type.HELMET) {
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_helmet.explosion").withStyle(ChatFormatting.GRAY));
+            }
+            if (this.type == Type.CHESTPLATE) {
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_chestplate.projectile").withStyle(ChatFormatting.GRAY));
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_chestplate.fire").withStyle(ChatFormatting.GRAY));
+            }
+            if (this.type == Type.LEGGINGS) {
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_leggings.stuck").withStyle(ChatFormatting.GRAY));
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_leggings.explosion").withStyle(ChatFormatting.GRAY));
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_leggings.sneak").withStyle(ChatFormatting.GRAY));
+            }
+            if (this.type == Type.BOOTS) {
+                p_41213_.add(Component.translatable("item.lemonmod.lemon_leather_boots.fall").withStyle(ChatFormatting.GRAY));
+            }
         }
-        if (this.type == Type.CHESTPLATE) {
-            p_41213_.add(Component.literal("64% Projectile Damage Reduction").withStyle(ChatFormatting.BLUE));
-            p_41213_.add(Component.literal("64% Fire Damage Reduction").withStyle(ChatFormatting.BLUE));
-        }
-        if (this.type == Type.LEGGINGS) {
-            p_41213_.add(Component.literal("0% Stuck Speed Multiplier").withStyle(ChatFormatting.BLUE));
-            p_41213_.add(Component.literal("+40% Explosion Knockback Velocity").withStyle(ChatFormatting.BLUE));
-            p_41213_.add(Component.literal("-25% Sneak Speed Multiplier").withStyle(ChatFormatting.BLUE));
-        }
-        if (this.type == Type.BOOTS) {
-            p_41213_.add(Component.literal("80% Fall Damage Reduction").withStyle(ChatFormatting.BLUE));
-        }
+    }
+
+    public boolean canBeHurtBy(DamageSource p_41387_) {
+        return (super.canBeHurtBy(p_41387_)) && (!(this.getMaterial() == ModArmorMaterials.LEMON_LEATHER) || !p_41387_.is(DamageTypeTags.IS_EXPLOSION));
     }
 }

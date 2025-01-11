@@ -15,8 +15,10 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -372,6 +374,10 @@ public class LemonLauncherItem extends ProjectileWeaponItem implements Vanishabl
         ItemStack itemstack = new ItemStack(this);
         setTemperature(itemstack, (byte)2);
         return itemstack;
+    }
+
+    public boolean canBeHurtBy(DamageSource p_41387_) {
+        return (super.canBeHurtBy(p_41387_)) && (!p_41387_.is(DamageTypeTags.IS_EXPLOSION));
     }
 
 }

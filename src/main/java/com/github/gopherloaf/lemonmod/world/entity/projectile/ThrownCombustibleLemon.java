@@ -88,6 +88,10 @@ public class ThrownCombustibleLemon extends ThrowableItemProjectile implements I
 
     protected void onHitEntity(@NotNull EntityHitResult p_36757_) {
         super.onHitEntity(p_36757_);
+        if (!this.level().isClientSide) {
+            Entity entity = p_36757_.getEntity();
+            entity.hurt(this.damageSources().thrown(this, this.getOwner()), 6.0F);
+        }
         explode(p_36757_);
     }
 

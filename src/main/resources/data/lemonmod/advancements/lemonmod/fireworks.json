@@ -1,0 +1,58 @@
+{
+  "parent": "lemonmod:lemonmod/combustible_lemon",
+  "criteria": {
+    "hit_in_air": {
+      "conditions": {
+        "entity": {
+          "stepping_on": {
+            "block": {
+              "blocks": [
+                "minecraft:air",
+                "minecraft:void_air",
+                "minecraft:cave_air"
+              ]
+            }
+          }
+        },
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "type": "lemonmod:combustible_lemon"
+            },
+            "tags": [
+              {
+                "expected": true,
+                "id": "minecraft:is_projectile"
+              }
+            ]
+          }
+        }
+      },
+      "trigger": "minecraft:player_hurt_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.fireworks.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:combustible_lemon"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.fireworks.title"
+    }
+  },
+  "requirements": [
+    [
+      "hit_in_air"
+    ]
+  ],
+  "rewards": {
+    "experience": 40
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "lemonmod:lemonmod/root",
+  "criteria": {
+    "penultimate_juice_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:penultimate_juice_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.penultimate_juice.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:penultimate_juice_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.penultimate_juice.title"
+    }
+  },
+  "requirements": [
+    [
+      "penultimate_juice_bottle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

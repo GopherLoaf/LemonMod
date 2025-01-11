@@ -1,0 +1,38 @@
+{
+  "parent": "lemonmod:lemonmod/root",
+  "criteria": {
+    "indirectly_combustible_lemon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:indirectly_combustible_lemon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.indirectly_combustible_lemon.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:indirectly_combustible_lemon"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.indirectly_combustible_lemon.title"
+    }
+  },
+  "requirements": [
+    [
+      "indirectly_combustible_lemon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

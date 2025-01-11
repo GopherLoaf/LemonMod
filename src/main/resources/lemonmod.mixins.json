@@ -15,8 +15,8 @@
     "MixinProtectionEnchantment",
     "MixinEnchantmentHelper",
     "MixinLevel",
-    "MixinItemEntity",
-    "MixinPlayerRenderer"
+    "MixinPlayerRenderer",
+    "MixinInventory"
   ],
   "injectors": {
     "defaultRequire": 1

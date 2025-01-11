@@ -1,0 +1,41 @@
+{
+  "parent": "lemonmod:lemonmod/golden_penultimate_juice",
+  "criteria": {
+    "ultimate_juice_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:ultimate_juice_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.ultimate_juice.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:ultimate_juice_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.ultimate_juice.title"
+    }
+  },
+  "requirements": [
+    [
+      "ultimate_juice_bottle"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

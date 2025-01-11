@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "lemon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:lemon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "lemonmod:textures/gui/advancements/backgrounds/lemon.png",
+    "description": {
+      "translate": "advancements.lemonmod.root.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:lemon"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.lemonmod.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "lemon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

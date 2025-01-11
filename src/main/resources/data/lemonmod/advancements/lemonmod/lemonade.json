@@ -1,0 +1,38 @@
+{
+  "parent": "lemonmod:lemonmod/root",
+  "criteria": {
+    "lemonade_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:lemonade_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.lemonade_bottle.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:lemonade_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.lemonade_bottle.title"
+    }
+  },
+  "requirements": [
+    [
+      "lemonade_bottle"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

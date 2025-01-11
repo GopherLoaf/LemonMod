@@ -50,8 +50,8 @@ public class ModItems {
     public static final RegistryObject<Item> ULTIMATE_JUICE_BOTTLE = ITEMS.register("ultimate_juice_bottle", () -> new BottleFoodItem(new Item.Properties().food(new FoodProperties.Builder()
             .nutrition((4 + 3 + 2 + 4 + 5) * 3).saturationMod(86.4f).effect(new MobEffectInstance(MobEffects.SATURATION, 1800, 0), 1.0F).effect(new MobEffectInstance(MobEffects.JUMP, 3600, 0), 1.0F).effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3600, 0), 1.0F).effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 3600, 0), 1.0F).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 3600, 0), 1.0F)
             .build()).rarity(Rarity.EPIC).craftRemainder(Items.GLASS_BOTTLE)));
-    public static final RegistryObject<Item> LEMON_RIND = ITEMS.register("lemon_rind", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> LEMON_LEATHER = ITEMS.register("lemon_leather", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> LEMON_RIND = ITEMS.register("lemon_rind", () -> new BlastResistantItem(new Item.Properties()));
+    public static final RegistryObject<Item> LEMON_LEATHER = ITEMS.register("lemon_leather", () -> new BlastResistantItem(new Item.Properties()));
     public static final RegistryObject<Item> LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE = ITEMS.register("lemon_leather_upgrade_smithing_template", () -> ModSmithingTemplateItem.createLemonUpgradeTemplate());
     public static final RegistryObject<Item> LEMON_LEATHER_HELMET = ITEMS.register("lemon_leather_helmet", () -> new ModArmorItem(ModArmorMaterials.LEMON_LEATHER, ArmorItem.Type.HELMET, (new Item.Properties())));
     public static final RegistryObject<Item> LEMON_LEATHER_CHESTPLATE = ITEMS.register("lemon_leather_chestplate", () -> new ModArmorItem(ModArmorMaterials.LEMON_LEATHER, ArmorItem.Type.CHESTPLATE, (new Item.Properties())));
@@ -76,9 +76,9 @@ public class ModItems {
     public static final RegistryObject<Item> LEMON_FENCE_GATE_ITEM = ITEMS.register("lemon_fence_gate", () -> new BlockItem(ModBlocks.LEMON_FENCE_GATE.get(), new Item.Properties()));
     public static final RegistryObject<Item> LEMON_FENCE_ITEM = ITEMS.register("lemon_fence", () -> new BlockItem(ModBlocks.LEMON_FENCE.get(), new Item.Properties()));
     public static final RegistryObject<Item> LEMON_DOOR_ITEM = ITEMS.register("lemon_door", () -> (BlockItem) (new DoubleHighBlockItem(ModBlocks.LEMON_DOOR.get(), new Item.Properties())));
-    public static final RegistryObject<Item> BIG_LEMON_ITEM = ITEMS.register("big_lemon", () -> new BlockItem(ModBlocks.BIG_LEMON.get(), new Item.Properties()));
-    public static final RegistryObject<Item> HOLLOWED_BIG_LEMON_ITEM = ITEMS.register("hollowed_big_lemon", () -> new BlockItem(ModBlocks.HOLLOWED_BIG_LEMON.get(), new Item.Properties()));
-    public static final RegistryObject<Item> BIG_LEMON_LANTERN_ITEM = ITEMS.register("big_lemon_lantern", () -> new BlockItem(ModBlocks.BIG_LEMON_LANTERN.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BIG_LEMON_ITEM = ITEMS.register("big_lemon", () -> new BlastResistantBlockItem(ModBlocks.BIG_LEMON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> HOLLOWED_BIG_LEMON_ITEM = ITEMS.register("hollowed_big_lemon", () -> new BlastResistantBlockItem(ModBlocks.HOLLOWED_BIG_LEMON.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BIG_LEMON_LANTERN_ITEM = ITEMS.register("big_lemon_lantern", () -> new BlastResistantBlockItem(ModBlocks.BIG_LEMON_LANTERN.get(), new Item.Properties()));
 
     public static void register(){
         // Register the Deferred Register to the mod event bus so item get registered

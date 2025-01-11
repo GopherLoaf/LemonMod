@@ -1,0 +1,38 @@
+{
+  "parent": "lemonmod:lemonmod/root",
+  "criteria": {
+    "big_lemon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:big_lemon"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.obtain_big_lemon.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:big_lemon"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.obtain_big_lemon.title"
+    }
+  },
+  "requirements": [
+    [
+      "big_lemon"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

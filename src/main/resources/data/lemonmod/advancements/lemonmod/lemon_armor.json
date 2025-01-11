@@ -1,0 +1,57 @@
+{
+  "parent": "lemonmod:lemonmod/obtain_big_lemon",
+  "criteria": {
+    "lemon_leather_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "lemonmod:lemon_leather_helmet"
+            ]
+          },
+          {
+            "items": [
+              "lemonmod:lemon_leather_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "lemonmod:lemon_leather_leggings"
+            ]
+          },
+          {
+            "items": [
+              "lemonmod:lemon_leather_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.lemonmod.lemon_armor.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "lemonmod:lemon_leather_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.lemonmod.lemon_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "lemon_leather_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

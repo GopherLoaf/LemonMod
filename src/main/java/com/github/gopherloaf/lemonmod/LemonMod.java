@@ -56,19 +56,17 @@ public class LemonMod
             .title(Component.translatable("creativetab.lemon_tab"))
             .displayItems((parameters, output) -> {
                 output.accept(ModItems.LEMON.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-                output.accept(ModItems.LEMON_BAR.get());
-                output.accept(ModItems.LEMON_JUICE_BOTTLE.get());
-                output.accept(ModItems.LEMONADE_BOTTLE.get());
-                output.accept(ModItems.PINEAPPLE.get());
-                output.accept(ModItems.SOUR_CANDIES.get());
                 output.accept(ModItems.GOLDEN_LEMON.get());
                 output.accept(ModItems.ENCHANTED_GOLDEN_LEMON.get());
+                output.accept(ModItems.LEMONADE_BOTTLE.get());
+                output.accept(ModItems.LEMON_JUICE_BOTTLE.get());
+                output.accept(ModItems.LEMON_BAR.get());
+                output.accept(ModItems.PINEAPPLE.get());
                 output.accept(ModItems.GLISTERING_PINEAPPLE.get());
+                output.accept(ModItems.SOUR_CANDIES.get());
                 output.accept(ModItems.PENULTIMATE_JUICE_BOTTLE.get());
                 output.accept(ModItems.GOLDEN_PENULTIMATE_JUICE_BOTTLE.get());
                 output.accept(ModItems.ULTIMATE_JUICE_BOTTLE.get());
-                output.accept(ModItems.LEMON_BOAT.get());
-                output.accept(ModItems.LEMON_CHEST_BOAT.get());
                 ItemStack itemstack = new ItemStack(ModItems.INDIRECTLY_COMBUSTIBLE_LEMON.get());
                 IndirectlyCombustibleLemonItem.setExplosionSize(itemstack, (byte) 1);
                 output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
@@ -87,6 +85,8 @@ public class LemonMod
                 itemstack = new ItemStack(ModItems.COMBUSTIBLE_LEMON.get());
                 CombustibleLemonItem.setExplosionSize(itemstack, (byte) 20);
                 output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                output.accept(ModItems.LEMON_BOAT.get());
+                output.accept(ModItems.LEMON_CHEST_BOAT.get());
                 output.accept(ModItems.LEMON_RIND.get());
                 output.accept(ModItems.LEMON_LEATHER.get());
                 output.accept(ModItems.LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE.get());
@@ -97,6 +97,9 @@ public class LemonMod
                 itemstack = new ItemStack(ModItems.LEMON_LAUNCHER.get());
                 LemonLauncherItem.setTemperature(itemstack, (byte) 2);
                 output.accept(itemstack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                output.accept(ModItems.BIG_LEMON_ITEM.get());
+                output.accept(ModItems.HOLLOWED_BIG_LEMON_ITEM.get());
+                output.accept(ModItems.BIG_LEMON_LANTERN_ITEM.get());
                 output.accept(ModItems.LEMON_LOG_ITEM.get());
                 output.accept(ModItems.LEMON_LEAVES_ITEM.get());
                 output.accept(ModItems.LEMON_SAPLING_ITEM.get());
@@ -114,9 +117,6 @@ public class LemonMod
                 output.accept(ModItems.LEMON_BUTTON_ITEM.get());
                 output.accept(ModItems.LEMON_SIGN_ITEM.get());
                 output.accept(ModItems.LEMON_HANGING_SIGN_ITEM.get());
-                output.accept(ModItems.BIG_LEMON_ITEM.get());
-                output.accept(ModItems.HOLLOWED_BIG_LEMON_ITEM.get());
-                output.accept(ModItems.BIG_LEMON_LANTERN_ITEM.get());
             }).build());
 
     public LemonMod()
@@ -181,20 +181,20 @@ public class LemonMod
         LemonLauncherItem.setTemperature(lemonLauncher, (byte) 2);
         if (event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS){
             event.accept(ModItems.LEMON);
-            event.accept(ModItems.LEMON_BAR);
-            event.accept(ModItems.LEMON_JUICE_BOTTLE);
-            event.accept(ModItems.LEMONADE_BOTTLE);
-            event.accept(indirectlyCombustibleLemon, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.accept(indirectlyCombustibleLemon1, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.accept(indirectlyCombustibleLemon2, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-            event.accept(ModItems.PINEAPPLE);
-            event.accept(ModItems.SOUR_CANDIES);
             event.accept(ModItems.GOLDEN_LEMON);
             event.accept(ModItems.ENCHANTED_GOLDEN_LEMON);
-            event.accept(ModItems.BIG_LEMON_ITEM);
+            event.accept(ModItems.LEMONADE_BOTTLE);
+            event.accept(ModItems.LEMON_JUICE_BOTTLE);
+            event.accept(ModItems.LEMON_BAR);
+            event.accept(ModItems.PINEAPPLE);
+            event.accept(ModItems.SOUR_CANDIES);
             event.accept(ModItems.PENULTIMATE_JUICE_BOTTLE);
             event.accept(ModItems.GOLDEN_PENULTIMATE_JUICE_BOTTLE);
             event.accept(ModItems.ULTIMATE_JUICE_BOTTLE);
+            event.accept(indirectlyCombustibleLemon, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon1, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(indirectlyCombustibleLemon2, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(ModItems.BIG_LEMON_ITEM);
         }
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS){
             event.accept(ModItems.LEMON_LOG_ITEM);
@@ -229,11 +229,11 @@ public class LemonMod
             event.accept(ModItems.LEMON_CHEST_BOAT);
         }
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModItems.LEMON_RIND);
+            event.accept(ModItems.LEMON_LEATHER);
             event.accept(ModItems.LEMON_JUICE_BOTTLE);
             event.accept(ModItems.SOUR_CANDIES);
             event.accept(ModItems.GLISTERING_PINEAPPLE);
-            event.accept(ModItems.LEMON_RIND);
-            event.accept(ModItems.LEMON_LEATHER);
             event.accept(ModItems.LEMON_LEATHER_UPGRADE_SMITHING_TEMPLATE);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT){
